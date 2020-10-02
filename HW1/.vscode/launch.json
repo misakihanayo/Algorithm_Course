@@ -1,0 +1,35 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "debug配置的名字",
+            "type": "cppdbg",
+            "request": "launch",
+
+            // 引用cmake的目标路径
+            "program": "${command:cmake.launchTargetPath}",
+            "args": [],
+            "stopAtEntry": false,
+            "cwd": "${workspaceFolder}",
+            "environment": [
+                {
+                    "name": "PATH",
+                    "value": "$PATH:${command:cmake.launchTargetDirectory}"
+                },
+                {
+                    "name": "OTHER_VALUE",
+                    "value": "Something something"
+                }
+            ],
+
+            //是否为外部控制台，设置true的话会debug不起
+            "externalConsole": false,
+
+            //debug工具，选用lldb，不用gdb
+            "MIMode": "lldb",
+        }
+    ]
+}
