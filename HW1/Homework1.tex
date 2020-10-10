@@ -84,5 +84,8 @@ $n!=n*(n-1)*(n-2)*...*2*1 \leq n*n*n*...*n*n $\\
 \paragraph{a} $T(n)=\sqrt{n} lgn$
 \paragraph{b} $T(n)=n^2$
 
-\subsection{Prob7}可以，由于对于递归式有$n^{\log_2 4} < n^2lgn$，故其渐进界$O(T(n))=n^2lgn$
+\subsection{Prob7}不可以，由于对于递归式有$n^{\log_2 4} < n^2lgn$，但不存在$\epsilon > 0$，使得$f(n)=\Omega(n^(4+\epsilon))$。
+故考虑递归树。可以看出来第i层的复杂度为$n^2lg(\frac{n}{2^i})$。
+故总复杂度为$n^2lg(\frac{n^(lgn)}{2^{1+2+...+lgn}})=n^2lg(n)$
+
 \end{document}
