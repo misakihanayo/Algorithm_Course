@@ -1,0 +1,43 @@
+\documentclass{ctexart}
+\title{Algorithm Homework2}
+\author{PB18111704 Zhu Enzuo}
+\date{\today}
+\usepackage{algorithm} %ctan.org\pkg\algorithms
+\usepackage{algpseudocode}
+\usepackage{amsmath}
+\usepackage{tikz}
+\begin{document}
+\maketitle
+
+\subsection{Prob1} 升序序列堆排序分析
+\subparagraph{建堆过程}
+    建堆过程为从编号为$\left \lfloor \frac{n}{2} \right \rfloor$的节点开始依次进行堆维护。每一次维护由于
+    当前根节点是最小的，所以一定需要logh次比较才能让堆满足最大堆的性质。故总复杂度是O(nlogn)。
+\subparagraph{排序过程}
+    每次将根节点从堆中取出，然后维护堆。共需N次操作和N-1次维护。因为换上来的元素在维护结束后一定会去某个叶子节点每一次维护的复杂度是O(H)，其中H是深度。
+    因此最终排序过程的总复杂度为$\Sigma_{i=1}^{N-1}log_{2}i=\Sigma_{i=1}^NO(logn)=nlogn$
+    总复杂度为O(nlogn)\\
+
+降序序列堆排序分析
+\subparagraph{建堆过程}
+    建堆过程为从编号为$\left \lfloor \frac{n}{2} \right \rfloor$的节点开始依次进行堆维护。每一次维护由于
+    当前根节点一定比两个子节点大，所以只需要2次比较就可以维护完堆，故总复杂度是O(n)。
+\subparagraph{排序过程}
+    每次将根节点从堆中取出，然后维护堆。共需N次操作和N-1次维护。因为换上来的元素在维护结束后一定会去某个叶子节点每一次维护的复杂度是O(H)，其中H是深度。
+    因此最终排序过程的总复杂度为$\Sigma_{i=1}^{N-1}log_{2}i=\Sigma_{i=1}^NO(logn)=nlogn$ \\
+    因此最终总复杂度是O(nlogn)
+
+\subsection{Prob2}
+\subparagraph{1.}由于$0<\alpha<\frac{1}{2}$，所以有$\alpha<1-\alpha$。所以对于每一次分割，$1-\alpha$对应的区间总是更长的。我们规定分割树每一个向左的节点的区间为割了$\alpha$的区间，向右的相反。
+我们有左子节点的区间长度为$n\alpha$，右子节点的长度为$n(1-\alpha)$。
+
+由于分割一旦出现一个长度为1的节点就会停止。而对于从根到该叶子的路径的长度H有如下性质：
+
+该路径中一定包含k次向左走和h-k次向右走。最终有$n\alpha^k(1-\alpha)^{h-k}=1$
+
+因此，对于最浅的节点有$n\alpha^h=1$，即$h_{min}=log_{\alpha}n=logn/log\alpha$。最深的节点有$l(1-\alpha)^h=1$，即$h_{max}=logn/log(1-\alpha)$。
+\subparagraph{2.}记产生的划分比例是K。那么有$P(K)=2/N，K\in {1,2,...,\frac{n}{2}}$。
+
+故$P(K \le (1-\alpha)/\alpha )=\Sigma_{i=n\alpha}^{N/2}2/N=2/N*N(1/2-\alpha)=1-2\alpha$
+
+\end{document}
