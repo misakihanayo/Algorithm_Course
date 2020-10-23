@@ -29,6 +29,7 @@ int main(int argc,char *argv[])
 	}
 	for (int i=1;i<top;i++){
 		for (int j=i+1;j<=top;j++){
+			printf("current position %d %d\n",i,j);
 			if (number[i].count<number[j].count || number[i].count==number[j].count && number[i].key>number[j].key)
 				swap(number[i],number[j]);	
 		}
