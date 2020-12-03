@@ -1,0 +1,93 @@
+\documentclass{ctexart}
+\title{Algorithm Homework1}
+\author{PB18111704 Zhu Enzuo}
+\date{\today}
+\usepackage{algorithm} %ctan.org\pkg\algorithms
+\usepackage{algpseudocode}
+\usepackage{amsmath}
+\usepackage{tikz}
+\begin{document}
+\maketitle
+\subsection{Prob1}
+
+状态：dp[N] 表示恰好切掉长度为C的钢条的情况下最大收益为dp[C]
+
+转移：$dp[i]_{i=1...N-1}=max(dp[i],(dp[i-l_j]>0)dp[i-l_j]+p_j-c)$
+
+$dp[N]=max_{j=1...M}(dp[N-l_j]+p_j)$
+
+结果：$ans=max_(i=1...N)(dp[i])$
+
+\subsection{Prob2}
+\begin{algorithm}
+    \caption{Shortest Path}
+    \begin{algorithmic}
+        \Procedure{ShortestPath}{$node S,node T$}
+            \If{S到T的最短路已经计算得出}
+                \State $return\ ShortestPathmap[S][T]$
+            \Else
+                \For{each S's edge's target}
+                    \State $ShortestPathmap[S][T]=max(ShortestPathmap[S][T],ShortestPathmap[S][S->next]+ShortestPath(S->next,T))$
+                \EndFor
+            \EndIf
+        \EndProcedure
+    \end{algorithmic}
+\end{algorithm}
+
+\subsection{Prob3}
+minimum: 1.22
+
+\begin{tikzpicture}
+    \node{4}
+    child{
+        node{2}
+        child{node{1}
+            child{node{0}}
+        }
+        child{node{{3}}}
+    }
+    child[missing]{}
+    child{
+        node{6}
+        child{node{5}}
+        child{node{7}}
+    };
+\end{tikzpicture}
+\subsection{Prob4}
+
+考虑最优子结构：
+
+对于一个子树的根节点：由于子树的根节点这个员工的选择情况会影响到其父结点的选择状况。所以需要对根节点的选择情况计算保存两个不同的值。
+
+\begin{algorithm}
+    \caption{BestChoise}
+    \begin{algorithmic}
+        \Procedure{DFS}{$node root$}
+            \If{root has no son}
+                \State $root->mvwithroot=root->value$
+                \State $root->mvwithoutroot=0$
+                \State $return$
+            \EndIf
+            \For{each son of root}
+                \State $DFS(son)$
+            \EndFor
+            \State $root->mvwithroot=\Sigma s->mvwithoutroot+root->value$
+            \State $root->mvwithoutroot=\Sigma max(s->mvwithroot,s->mvwithroot)+root->value$
+        \EndProcedure
+    \end{algorithmic}
+\end{algorithm}
+
+时间复杂度：对于每一个节点只会自己计算的时候访问一次，算其父节点的时候被访问一次，所以每个节点都只会被访问2次，且每次访问都是O(1)的。故总复杂度为O(n)
+
+\subsection{Prob5}
+算法：先将所有实数从小到大排序。然后进行贪心：每一次取尚未被包含于区间中的值最小的点作为新区间的下界。然后将所有被这个区间包裹的点从原集合中删除。
+这样构造出来的一个单位区间集合就是最终的结果。
+
+正确性：对于每一次选择的区间，由于最终结果一定会需要将当前最小的点包裹在区间中，而且如果移动区间使得有一些点不再属于这个区间，则之后的答案一定不优于当前结果。
+故这个算法是正确的。
+
+\subsection{Prob6}
+算法：从最大的硬币开始尝试：如果能找则直接用之，否则用小一点的开始尝试。
+
+正确性：对于少找了了d个25硬币，至少需要3d个硬币才能更优。
+\end{document}

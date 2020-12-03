@@ -1,0 +1,51 @@
+\documentclass{ctexart}
+\title{Algorithm Homework3}
+\author{PB18111704 Zhu Enzuo}
+\date{\today}
+\usepackage{algorithm} %ctan.org\pkg\algorithms
+\usepackage{algpseudocode}
+\usepackage{amsmath}
+\usepackage{tikz}
+\begin{document}
+\maketitle
+\subsection{Prob1}
+\begin{algorithm}
+    \begin{algorithmic}[1]
+    \Procedure{Makeset}{$*A,v$}
+        \State A->key=v;
+        \State A->parent=A;
+    \EndProcedure
+    \end{algorithmic}
+\end{algorithm}
+\begin{algorithm}
+    \begin{algorithmic}
+        \Procedure{Findset}{$*A$}
+            \If{A->parent->key==A->key}
+                \State $return A$
+            \Else
+                \State $A->parent\gets Findset(A->parent)$
+                \State $return A$
+            \EndIf
+        \EndProcedure
+    \end{algorithmic}
+\end{algorithm}
+\begin{algorithm}
+    \begin{algorithmic}
+        \Procedure{Union}{$*A,*B$}
+            \State $Aset=Findset(A)$
+            \State $Bset=Findset(B)$
+            \State $Bset->parent=Aset$
+        \EndProcedure
+    \end{algorithmic}
+\end{algorithm}
+\subsection{Prob2}
+
+状态：pack[i][w] 表示从前i个商品中选择物品装入背包有至少一种方法使得背包中商品总重量为w
+
+初始状态：pack[i][0]=1
+
+转移：pack[i][j]=$pack[i-1][j-item_i.weight]$
+
+最终结果：$ans=max_j(pack[n][j]=1)$
+
+\end{document}

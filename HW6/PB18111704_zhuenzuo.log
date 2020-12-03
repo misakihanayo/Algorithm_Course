@@ -1,10 +1,10 @@
-This is XeTeX, Version 3.14159265-2.6-0.999992 (TeX Live 2020) (preloaded format=xelatex 2020.10.1)  3 NOV 2020 16:07
+This is XeTeX, Version 3.14159265-2.6-0.999992 (TeX Live 2020) (preloaded format=xelatex 2020.10.1)  24 NOV 2020 15:54
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
  %&-line parsing enabled.
-**Homework1
-(./Homework1.tex
+**PB18111704_zhuenzuo
+(./PB18111704_zhuenzuo.tex
 LaTeX2e <2020-02-02> patch level 5
 L3 programming layer <2020-03-06> (/usr/local/texlive/2020/texmf-dist/tex/latex/ctex/ctexart.cls (/usr/local/texlive/2020/texmf-dist/tex/latex/l3kernel/expl3.sty
 Package: expl3 2020-03-06 L3 programming layer (loader) 
@@ -518,8 +518,8 @@ File: pgfmodulematrix.code.tex 2020/01/08 v3.1.5b (3.1.5b)
 \tikz@expandcount=\count314
  (/usr/local/texlive/2020/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibrarytopaths.code.tex
 File: tikzlibrarytopaths.code.tex 2020/01/08 v3.1.5b (3.1.5b)
-))) (./Homework1.aux)
-\openout1 = `Homework1.aux'.
+))) (./PB18111704_zhuenzuo.aux)
+\openout1 = `PB18111704_zhuenzuo.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 9.
 LaTeX Font Info:    ... okay on input line 9.
@@ -598,28 +598,33 @@ LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `bold'
  ABD: EveryShipout initializing macros
 
 LaTeX Font Warning: Font shape `OMX/cmex/m/n' in size <10.53937> not available
-(Font)              size <10.95> substituted on input line 17.
+(Font)              size <10.95> substituted on input line 15.
+
+
+Overfull \hbox (105.39722pt too wide) in paragraph at lines 30--31
+[] $\OML/cmm/m/it/10.53937 ShortestPathmap\OT1/cmr/m/n/10.53937 [\OML/cmm/m/it/10.53937 S\OT1/cmr/m/n/10.53937 ][\OML/cmm/m/it/10.53937 T\OT1/cmr/m/n/10.53937 ] = \OML/cmm/m/it/10.53937 max\OT1/cmr/m/n/10.53937 (\OML/cmm/m/it/10.53937 ShortestPathmap\OT1/cmr/m/n/10.53937 [\OML/cmm/m/it/10.53937 S\OT1/cmr/m/n/10.53937 ][\OML/cmm/m/it/10.53937 T\OT1/cmr/m/n/10.53937 ]\OML/cmm/m/it/10.53937 ; ShortestPathmap\OT1/cmr/m/n/10.53937 [\OML/cmm/m/it/10.53937 S\OT1/cmr/m/n/10.53937 ][\OML/cmm/m/it/10.53937 S\OMS/cmsy/m/n/10.53937 ^^@ \OML/cmm/m/it/10.53937 >
+ []
 
 [1
 
 ]
-Underfull \hbox (badness 10000) in paragraph at lines 48--52
-
+Underfull \hbox (badness 1394) in paragraph at lines 75--76
+[] $\OML/cmm/m/it/10.53937 root\OMS/cmsy/m/n/10.53937 ^^@ \OML/cmm/m/it/10.53937 > mvwithoutroot \OT1/cmr/m/n/10.53937 = ^^F\OML/cmm/m/it/10.53937 max\OT1/cmr/m/n/10.53937 (\OML/cmm/m/it/10.53937 s\OMS/cmsy/m/n/10.53937 ^^@ \OML/cmm/m/it/10.53937 > mvwithroot; s\OMS/cmsy/m/n/10.53937 ^^@ \OML/cmm/m/it/10.53937 >
  []
 
-[2] [3] [4] (./Homework1.aux)
+[2] [3] (./PB18111704_zhuenzuo.aux)
 
 LaTeX Font Warning: Size substitutions with differences
 (Font)              up to 0.41063pt have occurred.
 
  ) 
 Here is how much of TeX's memory you used:
- 18943 strings out of 479418
- 451419 string characters out of 5884585
- 700657 words of memory out of 5000000
- 36132 multiletter control sequences out of 15000+600000
- 537624 words of font info for 65 fonts, out of 8000000 for 9000
+ 18971 strings out of 479418
+ 452689 string characters out of 5884585
+ 700679 words of memory out of 5000000
+ 36161 multiletter control sequences out of 15000+600000
+ 537616 words of font info for 64 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
- 60i,10n,81p,411b,878s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 60i,10n,81p,421b,1052s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on Homework1.pdf (4 pages).
+Output written on PB18111704_zhuenzuo.pdf (3 pages).
