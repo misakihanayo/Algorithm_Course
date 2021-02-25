@@ -1,0 +1,60 @@
+\documentclass{ctexart}
+\title{Algorithm Homework1}
+\author{PB18111704 Zhu Enzuo}
+\date{\today}
+\usepackage{algorithm} %ctan.org\pkg\algorithms
+\usepackage{algpseudocode}
+\usepackage{amsmath}
+\usepackage{tikz}
+\begin{document}
+\maketitle
+\subsection{Prob1} Euler Curcuit
+
+\paragraph{a} Proof:
+
+$\Rightarrow$ 我们先将整个回路经过的每个点单独拿出来观察。这样回路中经过的每一个点都满足一进一出，也就意味这$in-degree(v)=out-degree(v)$。
+之后把代表同一个原图中相同的点合并之后必然依然满足是$in-degree(v)=out-degree(v)$
+
+$\Leftarrow$ 任取一个出发点开始遍历。由于$in-degree(v)=out-degree(v)$，如果遍历一定次数后尚未回到出发点，那么现在停靠的点必然还有至少一条
+出边。所以经过有限次遍历之后必能回到出发点。这样就可以得到一个子回路。
+
+将这个子回路从图中移除，剩余图依然满足$in-degree(v)=out-degree(v)$。这样我们可以不停地选择还有边没有被加入欧拉回路的点作为起点不停地扩展。
+
+而且这个扩展只会在所有点的$in-degree(v)=out-degree(v)=0$时才会停止。也就是说我们一定可以找到一个欧拉回路。
+
+\paragraph{b} 先不停地取一个出发点s计算欧拉子回路直到所有的边都已经属于某一个欧拉子回路（O（E））
+
+然后再遍历一个回路，遍历的过程中如果发现了一个尚未加入最终结果的子回路，那么递归这个子回路并做相同的事情。（O（E））
+
+\subsection{Prob2}
+\paragraph{a}
+算法：将一种货币认为是点，汇率认为是边，一条边$s \to t$的权值是汇率。一条路径的总权值是这条路包含的所有边的权值的乘积。
+对于这样一个图做floyd warshell。覆盖条件为dist[i][k]*dist[k][j]>dist[i][j]。有解条件$\forall i, dist[i][i]>1$
+
+复杂度为$O(N^3)$
+\paragraph{b}
+在a中，在dist[i][j]中额外存一个链表，记录开头和结尾。发生覆盖以后将两个链表dist[i][k],dist[k][j]合并覆盖dist[i][j]。
+
+合并复杂度$O(1)$，更新复杂度$O(1)$，总复杂度$O(N^3)$
+
+\subsection{Prob3}
+
+$\hat{\omega} = \omega(u,v)+h(u)-h(v)$
+
+对于一个johnson算法处理过后的图，我们考虑这个环上的一个点u和它在图上的后继节点v：
+
+首先，(u,v)的最短路径必然是{(u,v)}。若否，则存在一个从u到v的比(u,v)更小的路径，也就意味着这个图存在负权环
+
+因此，如果u在dist(s,v)中，那么必然有(u,v)这一条边存在于dist(s,v)上。
+也就意味着dist(s,v)-dist(s,u)=(u,v)。故
+$\hat{\omega}=\omega(u,v)+h(u)-h(v)=\omega(u,v)-\omega(u,v)=0$
+
+若否，那么由于$dist(v,u)=-dist(u,v)$，那么$dist(s,u)=dist(s,v)+dist(v,u)$。
+(若否，则考虑$dist(s,u)$和$dist(s,v)$。这样$dist(s,u)+d<dist(s,v) \land dist(s,v)-d<dist(s,u)$)
+也就意味着$dist(s,u)<dist(s,v)-d<dist(s,u)$，矛盾！）
+
+这样就有$\hat{\omega}=\omega(u,v)+h(u)-h(v)=\omega(u,v)+dist(v,u)=0$
+\subsection{Prob4}
+\paragraph{a} 增加一个权值后如果最大流发生了改变，在剩余网络里面用O(V+E)寻找一条增广路，再用O(V+E)进行增光即可。
+\paragraph{b} 减少权值后最大流发生了改变，那么相当于需要从t到s找到一条增广路。做法与a相同。
+\end{document}

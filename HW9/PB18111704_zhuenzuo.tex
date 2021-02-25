@@ -1,0 +1,56 @@
+\documentclass{ctexart}
+\title{Algorithm Homework1}
+\author{PB18111704 Zhu Enzuo}
+\date{\today}
+\usepackage{algorithm} %ctan.org\pkg\algorithms
+\usepackage{algpseudocode}
+\usepackage{amsmath}
+\usepackage{tikz}
+\begin{document}
+\maketitle
+\subsection{Prob1}
+算法：按照如下性质构造一个有向图：
+
+对于N个变量，每个变量分别构造编号为i和i+N的两个点，i表示将i代表的元素加入集合，i+N表示不将i号元素加入集合。
+对于图中的边$i \to j$，表示选择了i号节点就必须选择j号节点。
+
+对于M个关系中的一元关系，如果Vi为真则建立$V_i \to V_{i+N}$，如果Vi为假则建立$V_{i+N} \to V_i$。
+
+对于M个关系中的各种二元关系，按照如下规则建边：
+
+对于与关系$A_i\ AND\ A_j$，建立$V_i \to V_j$和$V_j \to V_i$
+
+对于或关系$A_i\ OR\ A_j$，建立$V_{i+N} \to V_j$和$V_{j+N} \to V-i$
+
+对于异或关系$A_i\ XOR\ A_j$，建立$V_i \to V_{j+N}$，$V_{j+N} \to V_i$，$V_j \to V_{i+N}$和$V_{i+N} \to V_j$
+
+对于同或关系$A_i\ XAND\ A_j$，建立$V_i \to V_j$，$V_j \to V_i$，$V_{i+N} \to V_{j+N}$，$V_{j+N} \to V_{i+N}$
+
+这样我们可以求这个图的强连通分量，如果在某一个强连通分量中同时出现了集合中某一个变量对应的两个点，则无解。
+否则从强连通分量中拓扑序最小的开始依次判定每个强连通分量中最多能够选择多少个元素。
+
+\subsection{Prob2}
+\paragraph{a} 图如下：a-2-b-2-c-2-d
+\paragraph{b} 图如下：a-2-b-1-c-1-d
+\paragraph{c}
+证明：对于节点u，将图中的点分为两个集合{u}和{V-u}
+
+考虑这个图的最大生成树，一定有至少一条边是连接{u}和{V-u}两个集合的。
+
+如果与u相邻的最长边<u,v>不属于最大生成树，那么考虑当前最大生成树：
+
+将<u,v>这条边加入最大生成树，必然会产生一个环，且这个环至少包含一条权值小于<u,v>的边（因为至少存在另一条和u相邻的边<u,v'>）。
+删除现在这个图中的这一条边，那么可以获得一棵更大的生成树，和不包含<u,v>的树是最大生成树矛盾。
+
+故$S_G \subseteq T_G$
+\paragraph{d} 
+证明：只考虑$T_G$上的边，记$<u_i,v_1>$和$<u_i,v_2>$分别是最大生成树上和$u_i$相邻的较大边和较小边。
+\[\begin{aligned}
+    2\omega (S_G) &= \Sigma_{i=1}^N \omega<u_i,v_1> \\
+    &\ge \Sigma_{i=1}^N (\omega<u_i,v_1>+\omega<u_i,v_2>)/2 \\
+    &=\Sigma_{i=1}^{N-1} \omega<e_i>\\
+    &=\omega (T_G) 
+    \end{aligned}\]
+\paragraph{e}
+算法：遍历每条边，找到与这条边相邻的最大边。
+\end{document}

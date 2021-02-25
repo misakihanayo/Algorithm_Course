@@ -1,42 +1,47 @@
-#include<cstdlib>
+#include<cstdio>
 #include<iostream>
-#include<stack>
 #include<algorithm>
-#define maxn 100005
-#define maxt 100000005
+#include<queue>
 using namespace std;
 int N;
-struct tasks{
+struct work{
     int st;
-    int ed;
     int tm;
-} p[maxn];
-bool cmp(tasks a,tasks b){
-    return a.ed<b.ed || a.ed==b.ed && a.tm<b.tm;
+} tasks[100005];
+bool cmp(work a,work b){
+    return a.st<b.st;
 }
-stack <tasks> sta;
+int ans;
+priority_queue<int,vector<int>,greater<int> > que;
 int main()
 {
     scanf("%d",&N);
-    int ans=0;
     for (int i=1;i<=N;i++){
-        scanf("%d%d",&p[i].st,&p[i].tm);
-        p[i].ed=p[i].st+p[i].tm-1;
-        ans+=p[i].tm;
+        scanf("%d%d",&tasks[i].st,&tasks[i].tm);
     }
-    sort(p+1,p+N+1,cmp);
+    sort(tasks+1,tasks+N+1,cmp);
     for (int i=1;i<=N;i++){
-        while (!sta.empty()){
-            if (sta.top().ed>=p[i].st){
-                if (p[i].st>sta.top().st) p[i].st=sta.top().st;
-                p[i].tm+=sta.top().tm;
-                sta.pop();
+        int curtime=tasks[i].st-tasks[i-1].st;
+        while (!que.empty() && curtime>0){
+            int tmp=que.top();
+            que.pop();
+            if (curtime>=tmp){
+                ans+=tmp*(que.size()+1);
+                curtime-=tmp;
             }
-            else break;
+            else{
+                ans+=curtime*(que.size()+1);
+                tmp-=curtime;
+                que.push(tmp);
+                break;
+            }
         }
-        ans+=p[i].st+p[i].tm-1-p[i].ed;
-        p[i].ed=p[i].st+p[i].tm-1;
-        sta.push(p[i]);
+        que.push(tasks[i].tm);
+    }
+    while (!que.empty()){
+        int tmp=que.top();
+        que.pop();
+        ans+=tmp*(que.size()+1);
     }
     printf("%d\n",ans);
     return 0;

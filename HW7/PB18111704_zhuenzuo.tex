@@ -1,0 +1,55 @@
+\documentclass{ctexart}
+\title{Algorithm Homework1}
+\author{PB18111704 Zhu Enzuo}
+\date{\today}
+\usepackage{algorithm} %ctan.org\pkg\algorithms
+\usepackage{algpseudocode}
+\usepackage{amsmath}
+\usepackage{tikz}
+\begin{document}
+\maketitle
+\subsection{Prob1} 聚合分析
+
+$Total\_Operation=N-logN+\sigma_{0<i<logN} 2^i$
+
+$Amortize\_Cost=Total_Operation/N=1-logN/N+(2^{(logN+1)}-1)/N=O(logN)$
+\subsection{Prob2} 核算法
+
+\begin{tabular}{|c|c|c|}
+\hline
+Operation & Actual Cost & Amortized Cost \\
+\hline
+$i!=2^k$ & 1 & 3 \\
+\hline
+$i=2^k$ & $2^k$ & 2 \\
+\hline 
+\end{tabular}
+
+\subsection{Prob3} 势能法 
+
+对于非2的幂的操作，累计2的势能。
+这样每当到了2的幂的操作就会正好累计这么多的势能。
+
+所以摊还分析复杂度为O(1)
+\subsection{Prob4} 证明如下：
+
+\subparagraph{a}
+\[\begin{aligned}
+    y_{k_1,k_2,...,k_d} &= \sum_{j_1=0}^{n_1-1}\sum_{j_2=0}^{n_2-1}...\sum_{j_d=0}^{n_d-1} a_{j_1j_2...j_d}
+    \omega_{n_1}^{j_1k_1} \omega_{n_2}^{j_2k_2}...\omega_{n_d}^{j_dk_d} \\
+    &=\sum_{j_1=0}^{n_1-1}\sum_{j_2=0}^{n_2-1}...\sum_{j_{d-1}=0}^{n_{d-1}-1} \omega_{n_1}^{j_1k_1}
+    \omega_{n_2}^{j_2k_2}...\omega_{n_{d-1}}^{j_{d-1}k_{d-1}} \sum_{j_d=0}^{n_d-1} a_{j_1j_2...j_d}\omega_{n_d}^{j_dk_d}\\
+    &=\sum_{j_1=0}^{n_1-1}\omega_{n_1}^{j_1k_1}\sum_{j_2=0}^{n_2-1}
+    \omega_{n_2}^{j_2k_2}...\sum_{j_d=0}^{n_d-1} a_{j_1j_2...j_d}\omega_{n_d}^{j_dk_d}
+\end{aligned}\]
+观察最终的求和，其为向量$\vec{a}$先经过d维上的变换然后做d-1维上的变换最终做第1维上的变换。
+\subparagraph{b}
+由上问的公式，可以看出来求和号顺序的改变对结果没有影响。
+\subparagraph{c}
+\[\begin{aligned}
+Total\_Complexity&=\sum_{i=1}^d n_ilog(n_i) \\
+                 &\le n\sum_{i=1}^d n_ilog(n_i)
+                 &=nlog(n_1*n_2*n_3*...*n_d)
+                 &=O(nlogn)
+\end{aligned}\]
+\end{document}
