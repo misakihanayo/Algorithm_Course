@@ -1,0 +1,68 @@
+% LaTeX file for resume
+% This file uses the resume document class (res.cls)
+
+\documentclass[margin, 10pt]{res}
+\usepackage{url}
+\usepackage{enumitem}
+\usepackage[colorlinks=true,urlcolor=blue]{hyperref}
+
+\usepackage{fancyhdr}
+
+\pagestyle{fancy}
+\fancyhf{}
+\cfoot{Page \thepage}
+\renewcommand{\headrulewidth}{0pt}
+% the margin option causes section titles to appear to the left of body text
+%\textwidth=5.6in % increase textwidth to get smaller right margin
+%\usepackage{helvetica} % uses helvetica postscript font (download helvetica.sty)
+%\usepackage{newcent}   % uses new century schoolbook postscript font
+
+\begin{document}
+
+\setlist[itemize]{leftmargin=*}
+\name{Enzo Zhu\\[16pt]} % the \\[12pt] adds a blank line after name
+\address{{\bf Present Address} \\ Dept. of Computer Science\\ USTC\\
+        230026 Hefei, P.R.China  }
+\address{{\bf Contact Info} \\ (+86)18618154314 \\
+         zhuez1819@mail.ustc.edu.cn }
+
+\begin{resume}
+
+\section{Current \\ Position}
+Student at the Department of Computer Science, University of Science and Technology of China (USTC).
+
+\section{Interests}
+My research interests lie at the intersection of verification techniques in computer systems or softwares.
+
+\section{Education}
+{\bf Hong Kong University} (HKU), Hong Kong  \hfill Summer 2021 \\
+Internship\\
+Worked on an implemention of trusted accelerator execution in ARM trustzone \\
+Advisor: Heming Cui
+
+{\bf University of Science and Technology of China} (USTC), Hefei, China \hfill 2018 - 2022 \\
+B.S. in Computer Science
+
+\section{Awards}
+Third Prize in National Computer System Contest in Compiler Designing \hfill 08/2021 \\
+Second Prize in National Computer System Contest in Chip Designing \hfill 08/2020
+
+\section{Work \\ Experience}
+Part-time Computer Programming TA in USTC \hfill Sep-Dec 2020 \\
+Part-time Principles and Techniques of Compiler TA in USTC \hfill Sep-Dec 2021
+
+\section{Project \\ Experience}
+{\bf Bazinga Compiler} \url{https://github.com/misakihanayo/bazinga_compiler} \hfill 08/2021 \\
+I worked in a team on a compiler to translate code from sysc language to arm-v8 assembly code.
+Within this project, I implemented the lexer, the parser, part of the middle IR, several optimization passes, part of the lower IR and the code generator.
+
+{\bf ustc-nscscc-2020-1} \url{https://github.com/misakihanayo/ustc-nscscc-2020-1} \hfill 08/2020 \\
+I worked in a team on a 5 stage MIPS Chip. Within this project, I implemented the MEM stage,
+ the exception module, the TLB and the instruction and data cache.
+
+{\bf FPGAOL} \hfill 07/2019-12/2019 \\
+I worked in a team on a web system to provide online FPGA support for the collage digital circuits labs.
+
+
+\end{resume}
+\end{document}
