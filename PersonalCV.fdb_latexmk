@@ -1,7 +1,7 @@
 # Fdb version 3
-["pdflatex"] 1636866864 "/Users/mskhana/Algorithm_Course/PersonalCV.tex" "/Users/mskhana/Algorithm_Course/PersonalCV.pdf" "PersonalCV" 1636866868
+["pdflatex"] 1636866968 "/Users/mskhana/Algorithm_Course/PersonalCV.tex" "/Users/mskhana/Algorithm_Course/PersonalCV.pdf" "PersonalCV" 1636866969
   "/Users/mskhana/Algorithm_Course/PersonalCV.aux" 1632361578 8 a94a2480d3289e625eea47cd1b285758 ""
-  "/Users/mskhana/Algorithm_Course/PersonalCV.tex" 1636866863 3367 9106fbef822b3485f85befa6879dede9 ""
+  "/Users/mskhana/Algorithm_Course/PersonalCV.tex" 1636866968 3337 26bc5d5e1853969d06157658e95ccc9f ""
   "/usr/local/texlive/2021/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "/usr/local/texlive/2021/texmf-dist/fonts/tfm/public/cm/cmbx10.tfm" 1136768653 1328 c834bbb027764024c09d3d2bf908b5f0 ""
   "/usr/local/texlive/2021/texmf-dist/fonts/tfm/public/cm/cmbx12.tfm" 1136768653 1324 c910af8c371558dc20f2d7822f66fe64 ""
@@ -56,10 +56,10 @@
   "/usr/local/texlive/2021/texmf-var/web2c/pdftex/pdflatex.fmt" 1632360464 2724743 411a5e7397d51c6c274ec47bdc35db0b ""
   "/usr/local/texlive/2021/texmf.cnf" 1616695596 577 4c1911a7228e554c6032256d3cf5567d ""
   "PersonalCV.aux" 1632361578 8 a94a2480d3289e625eea47cd1b285758 ""
-  "PersonalCV.tex" 1636866863 3367 9106fbef822b3485f85befa6879dede9 ""
+  "PersonalCV.tex" 1636866968 3337 26bc5d5e1853969d06157658e95ccc9f ""
   "res.cls" 1632358095 25300 7864b8b3ed491d0794de88334cf105d6 ""
   (generated)
-  "/Users/mskhana/Algorithm_Course/PersonalCV.pdf"
-  "/Users/mskhana/Algorithm_Course/PersonalCV.log"
   "PersonalCV.log"
+  "/Users/mskhana/Algorithm_Course/PersonalCV.log"
   "PersonalCV.pdf"
+  "/Users/mskhana/Algorithm_Course/PersonalCV.pdf"
